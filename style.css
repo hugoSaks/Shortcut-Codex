@@ -1,0 +1,84 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.Pea {
+    display: flex;
+    align-items: center;
+    width: 100%; 
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 15px 20px;    
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    border-bottom: 1px solid #9d9292; /* Adds a line below the header */
+}
+
+.title-container {
+    text-align: center;
+    order: 2;
+    flex-grow: 1;
+}
+
+.title-image {
+    height: 40px; 
+    width: auto;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    order: 3; 
+    flex-basis: 200px; /* Give the container a base width */
+    margin-left: 20px; /* Add space to the left of the search bar */
+}
+
+.search-icon {
+    color: #000000;
+    margin-right: 8px;
+    font-size: 1.2em;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 1em;
+    width: 150px;
+    color: #333;
+}
+
+.favorites-container {
+    display: flex;
+    align-items: center;
+    order: 1;
+    flex-basis: 200px; /* Give an equal base width to the left container */
+    justify-content: flex-end; /* Push the heart to the right of its container */
+    margin-right: 20px; /* Add space to the right of the heart icon */
+}
+
+.favorites-icon {
+    font-size: 2em; /* Adjust this value to your desired size */
+    color: #000000;
+    cursor: pointer;
+}
+
+.favorites-icon:hover {
+    opacity: 0.6;
+}
+
+.Valikud {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* This will center the items horizontally */
+    padding: 10px 0; /* Adds some vertical spacing */
+}
+
+.Valikud p {
+    margin: 0 20px; /* Adds space between the items */
+}
