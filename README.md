@@ -13,12 +13,9 @@ See tööriist on loodud üliõpilastele ja kõigile, kes õpivad programmeerimi
 3. Lihtne kasutajaliides: Puhas ja häirevaba disain, mis annab sulle vajaliku info kätte ja laseb sul koodi juurde tagasi pöörduda.
 
 ### Kasutatud tehnoloogiad:
-JS
-HTML5
-CSS3
-Font Awesome
+* JS
+* HTML5
+* CSS3
+* Font Awesome
 
-Selle projekti on loonud:
-Mio
-Hugo
-Karl
+Selle projekti on loonud: Mio, Hugo, Karl
