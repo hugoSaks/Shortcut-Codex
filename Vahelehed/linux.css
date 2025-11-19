@@ -140,3 +140,70 @@ body {
     margin: 0 auto 15px auto;
     width: 80%;
 }
+
+/* See on kast (nimekiri), mis hoiab kõiki kaarte */
+.shortcut-list {
+    display: grid;                  /* Teeb nimekirjast võrgustiku */
+    grid-template-columns: 1fr 1fr; /* Tekitab KAKS võrdset tulpa (1fr = 1 fraction) */
+    gap: 20px;                      /* Jätab kaartide vahele ja külgedele ruumi */
+    
+    max-width: 1000px;              /* MÄÄRAB PIIRANGU: Nimekiri ei lähe kunagi laiemaks kui 1000px */
+    margin: 0 auto 30px auto;       /* "0 auto" tsentreerib kogu nimekirja lehe keskele */
+    
+    list-style: none;               /* Eemaldab punktid (bullet points) */
+    padding: 0;
+}
+
+/* See on telefonide jaoks - kui ekraan on kitsas, paneb kaardid üksteise alla tagasi */
+@media (max-width: 768px) {
+    .shortcut-list {
+        grid-template-columns: 1fr; /* Telefonis ainult 1 tulp */
+    }
+}
+
+/* 2. THE CARD (The White Box) */
+.shortcut-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    display: flex;             
+    align-items: center;      
+    justify-content: space-between;
+    
+    padding: 15px 25px;
+}
+
+/* 3. THE GREY WRAPPER (Behind the keys) */
+.key-wrapper {
+    background-color: #d3d3d3; /* The light grey pill background */
+    padding: 8px 15px;         /* Space around the keys */
+    border-radius: 10px;       /* Rounds the grey background */
+    display: flex;             /* Keeps keys in a row */
+    gap: 8px;                  /* Space between Ctrl and C */
+}
+
+/* 4. THE KEYS (The actual buttons like "Ctrl") */
+.key-wrapper kbd {
+    background-color: #888;    /* Darker grey for the key itself */
+    color: white;              /* White text */
+    padding: 5px 10px;
+    border-radius: 6px;        /* Rounded corners for keys */
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.1em;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.2); /* Tiny shadow under the key */
+}
+
+/* 5. THE DESCRIPTION (The Text) */
+.card-description {
+    font-size: 1.1em;
+    color: #333;
+    font-weight: 500;
+    text-align: right;         /* Aligns text to the right side */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px; 
+}
