@@ -128,7 +128,6 @@ function renderShortcuts(arr, selector) {
     });
 }
 
-// Lisa otsingu funktsioon
 function searchShortcuts(searchTerm) {
     searchTerm = searchTerm.toLowerCase();
     
@@ -141,7 +140,6 @@ function searchShortcuts(searchTerm) {
         }
     });
 
-    // Peida tühjad sektsioonid
     document.querySelectorAll('section').forEach(section => {
         const visibleItems = section.querySelectorAll('li[style=""]').length;
         if (visibleItems === 0) {
@@ -152,10 +150,8 @@ function searchShortcuts(searchTerm) {
     });
 }
 
-// Oota kuni DOM on laetud
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        // Renderda kõik kategooriad
         renderShortcuts(KõigeOlulisemad, '#olulised');
         renderShortcuts(Dokumendid, '#dokumendid');
         renderShortcuts(FileExplorer, '#explorer');
@@ -166,7 +162,6 @@ if (document.readyState === 'loading') {
         renderShortcuts(TootlikkusBoonused, '#tootlikkus');
         renderShortcuts(TerminalJaArendus, '#terminal');
 
-        // Lisa otsingu kuulaja
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
@@ -175,7 +170,6 @@ if (document.readyState === 'loading') {
         }
     });
 } else {
-    // Kui DOM on juba laetud, renderda kohe
     renderShortcuts(KõigeOlulisemad, '#olulised');
     renderShortcuts(Dokumendid, '#dokumendid');
     renderShortcuts(FileExplorer, '#explorer');

@@ -179,29 +179,3 @@ section h2 {
     border-bottom: 2px solid #eee;
     padding-bottom: 5px;
 }
-.otsingu_konteiner {
-    position: relative;
-    margin: 10px;
-}
-
-.otsingu_sisend {
-    padding: 8px 32px 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 200px;
-    font-size: 14px;
-}
-
-.otsingu_ikoon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #666;
-}
-
-/* Otsingutulemustes esiletõstmiseks */
-.highlight {
-    background-color: yellow;
-    padding: 2px;
-}
