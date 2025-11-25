@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createShortcutElement(shortcut) {
+
         const item = document.createElement('div');
         item.className = 'shortcut-item';
 
@@ -54,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
             shortcutsContainer.classList.add('peidetud'); 
         }
     });
-});
     // --- UUS KOOD: Jõuluteema (Easter Egg) ---
     const titleImage = document.querySelector('.tiitli_pilt');
     let clickCount = 0;
@@ -89,3 +89,4 @@ document.addEventListener('DOMContentLoaded', () => {
             snowflake.remove();
         }, duration * 1000);
     }
+});
