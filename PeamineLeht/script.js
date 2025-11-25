@@ -55,3 +55,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+    // --- UUS KOOD: Jõuluteema (Easter Egg) ---
+    const titleImage = document.querySelector('.tiitli_pilt');
+    let clickCount = 0;
+    let snowInterval = null;
+    if (titleImage) {
+        titleImage.style.cursor = 'pointer';
+        titleImage.addEventListener('click', () => {
+            clickCount++;
+            console.log("Logo klikk:", clickCount);
+            if (clickCount === 3 && !snowInterval) {
+                startSnowing();
+                clickCount = 0; 
+            }
+        });
+    }
+
+    function startSnowing() {
+        snowInterval = setInterval(createSnowflake, 100);
+    }
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.textContent = '❄';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        const size = Math.random() * 20 + 10;
+        snowflake.style.fontSize = size + 'px';
+        const duration = Math.random() * 5 + 3;
+        snowflake.style.animationDuration = duration + 's';
+        snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+        document.body.appendChild(snowflake);
+        setTimeout(() => {
+            snowflake.remove();
+        }, duration * 1000);
+    }

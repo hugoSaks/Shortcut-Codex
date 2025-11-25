@@ -246,3 +246,23 @@ body {
         flex-direction: column; 
     }
 }
+
+.snowflake {
+    position: fixed;
+    top: -20px;
+    color: white;
+    text-shadow: 0 0 5px rgba(0,0,0,0.3);
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    animation-name: fall;
+    animation-timing-function: linear;
+    will-change: transform;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(105vh);
+        opacity: 0;
+    }
+}
