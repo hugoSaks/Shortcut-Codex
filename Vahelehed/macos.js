@@ -155,7 +155,7 @@ const finderShortcuts = [
     { os: 'MacOS', description: 'Kopeerib lohistatud üksuse', keys: ['Option', 'Drag'] },
     { os: 'MacOS', description: 'Loob lohistatud üksusest otsetee (alias)', keys: ['Cmd', 'Option', 'Drag'] }
 ];
-
+function renderShortcuts(arr, selector) {
     const container = document.querySelector(selector);
     if (!container) return;
     container.innerHTML = '';
