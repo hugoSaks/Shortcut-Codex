@@ -83,7 +83,6 @@ const linuxBrowser = [
   { os: 'Linux', description: 'Allalaadimised', keys: ['Ctrl', 'J'] }
 ];
 
-// --- FUNKTSIOON KAARTIDE EHITAMISEKS ---
 function renderShortcuts(arr, selector) {
     const container = document.querySelector(selector);
     if (!container) return;
@@ -113,7 +112,6 @@ function renderShortcuts(arr, selector) {
     });
 }
 
-// --- KÄIVITAMINE ---
 document.addEventListener('DOMContentLoaded', () => {
     renderShortcuts(linuxTabs, '#linux-tabs');
     renderShortcuts(linuxGeneral, '#linux-general');

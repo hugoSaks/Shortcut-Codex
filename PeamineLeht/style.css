@@ -1,24 +1,14 @@
-/* =========================================
-   1. ÜLDINE
-   ========================================= */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
-    /* --- MUST-VALGE TAUST (Scrollides tumedamaks halliks) --- */
     background: linear-gradient(to bottom, #ffffff 0%, #555555 100%);
-    
     min-height: 100vh;
-    background-attachment: scroll; /* Gradient kerib koos lehega */
-    
+    background-attachment: scroll;
     color: #333;
     display: flex;
     flex-direction: column;
 }
 
-/* =========================================
-   2. PÄIS (Tühi, et gradient paistaks läbi)
-   ========================================= */
 .pais {
     display: flex;
     justify-content: center;
@@ -32,9 +22,6 @@ body {
     height: 30px; 
 }
 
-/* =========================================
-   3. KESKOSA (Logo, Suur Otsing ja Lemmikud)
-   ========================================= */
 .kangelas-ala {
     display: flex;
     flex-direction: column;
@@ -46,7 +33,6 @@ body {
     flex-grow: 1; 
 }
 
-/* Logo nüüd keskel ja suurem */
 .tiitli_pilt { 
     max-width: 100%;
     height: auto;
@@ -54,25 +40,23 @@ body {
     margin-bottom: 30px;
 }
 
-/* GOOGLE'I STIILIS OTSINGURIBA */
 .suur-otsing-konteiner {
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 584px; 
     background: #fff;
-    border: 1px solid rgba(255,255,255,0.7); /* Heledam piirjoon */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Kergem vari */
+    border: 1px solid rgba(255,255,255,0.7); 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     border-radius: 24px; 
     padding: 12px 20px;
     margin-bottom: 20px; 
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Hover effekt - vari tekib */
 .suur-otsing-konteiner:hover,
 .suur-otsing-konteiner:focus-within {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Natuke tumedam vari hoveril */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     border-color: rgba(255,255,255,0.9);
 }
 
@@ -89,12 +73,9 @@ body {
     font-size: 1.1em;
     line-height: 1.5;
     color: #202124;
-    background-color: transparent; /* Läbipaistev taust */
+    background-color: transparent; 
 }
 
-/* =========================================
-   4. LEMMIKUD (Läbipaistev nupp otsingu all)
-   ========================================= */
 .favoriidid-konteiner {
     text-align: center; 
     margin-bottom: 30px; 
@@ -105,10 +86,9 @@ body {
     align-items: center;
     gap: 8px; 
     
-    background-color: transparent; /* Läbipaistev taust */
-    border: 1px solid #ffffff; /* Valge piirjoon */
-    color: #ffffff; /* Valge tekst */
-    
+    background-color: transparent; 
+    border: 1px solid #ffffff; 
+    color: #ffffff; 
     border-radius: 4px;
     font-family: arial,sans-serif;
     font-size: 0.9em;
@@ -119,29 +99,25 @@ body {
     height: 36px;
     line-height: 20px;
     box-sizing: border-box;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Väike vari annab sügavust */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
 }
 
 .favoriidid-link:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    background-color: rgba(255,255,255,0.1); /* Väga õrn valge taust hoveril */
+    background-color: rgba(255,255,255,0.1); 
     border-color: #ffffff;
     color: #ffffff;
 }
 
 .favoriidid-link i {
     font-size: 1.1em; 
-    color: #ffffff; /* Valge ikoon */
+    color: #ffffff; 
 }
 
 .favoriidid-link:hover i {
-    color: #ff6b6b; /* Punane süda hoveril */
+    color: #ff6b6b; 
 }
 
-
-/* =========================================
-   5. OTSINGUTULEMUSED JA JALUS
-   ========================================= */
 .peidetud {
     display: none;
 }
@@ -152,18 +128,17 @@ body {
     padding: 0 20px;
 }
 
-/* Krediidid lehe all (sisaldab nüüd ka OS nuppe) */
 .krediidid {
     margin-top: auto; 
     text-align: center;
     padding: 20px;
-    color: #cccccc; /* Hele tekst tumedal taustal */
+    color: #cccccc;
     font-size: 0.9em;
-    background-color: #666666; /* Tumehall jaluse taust */
+    background-color: #666666;
     border-top: 1px solid #444444;
     width: 100%;
     box-sizing: border-box;
-    display: flex; /* Flexbox, et nupud ja tekst oleksid kenasti paigutatud */
+    display: flex; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -173,21 +148,20 @@ body {
     display: none; 
 }
 
-/* OS nupud, nüüd krediitide sees ja läbipaistvad */
 .Valikud {
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
-    margin-bottom: 15px; /* Vahe nuppude ja teksti vahel */
-    margin-top: 10px; /* Väike vahe krediitide ülemisest äärest */
+    margin-bottom: 15px; 
+    margin-top: 10px; 
 }
 
 .valiku-nupp {
-    background-color: transparent; /* Läbipaistev taust */
-    border: 1px solid #ffffff; /* Valge piirjoon */
+    background-color: transparent; /
+    border: 1px solid #ffffff; 
     border-radius: 4px;
-    color: #ffffff; /* Valge tekst */
+    color: #ffffff; 
     font-family: arial,sans-serif;
     font-size: 14px;
     margin: 0; 
@@ -198,17 +172,16 @@ body {
     cursor: pointer;
     text-align: center;
     transition: all 0.2s;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Väike vari annab sügavust */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); 
 }
 
 .valiku-nupp:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    background-color: rgba(255,255,255,0.1); /* Väga õrn valge taust hoveril */
+    background-color: rgba(255,255,255,0.1);
     border-color: #ffffff;
     color: #ffffff;
 }
 
-/* Kaardistiilid, kui neid siin vaja on (otsingutulemuste kuvamiseks) */
 .shortcut-card {
     display: flex;
     justify-content: space-between;
@@ -244,7 +217,6 @@ body {
     text-align: right;
 }
 
-/* Responsive disain telefonidele */
 @media (max-width: 600px) {
     .tiitli_pilt {
         width: 280px;
@@ -271,6 +243,6 @@ body {
         line-height: normal;
     }
     .Valikud {
-        flex-direction: column; /* Nupud üksteise alla väikestel ekraanidel */
+        flex-direction: column; 
     }
 }

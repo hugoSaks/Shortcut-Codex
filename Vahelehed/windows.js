@@ -109,68 +109,47 @@ const TerminalJaArendus = [
   { os: 'Windows', description: 'Sulge terminali vahekaart', keys: ['Ctrl', 'Shift', 'W'] },
 ];
 
-// SEE ON UUS FUNKTSIOON, MIS EHITAB KAARDID
 function renderShortcuts(arr, selector) {
     const container = document.querySelector(selector);
     if (!container) return;
-    
-    container.innerHTML = ''; // Tühjendame konteineri
-    
+    container.innerHTML = '';
     arr.forEach(s => {
-        // 1. Loome kaardi (li element)
         const card = document.createElement('li');
         card.className = 'shortcut-card';
-
-        // 2. Loome vasaku poole (klahvide ümbris)
         const keyWrapper = document.createElement('div');
         keyWrapper.className = 'key-wrapper';
-
-        // Lisame klahvid ümbrisesse
         s.keys.forEach(k => {
             const keyTag = document.createElement('kbd');
             keyTag.textContent = k;
             keyWrapper.appendChild(keyTag);
         });
-
-        // 3. Loome parema poole (kirjeldus)
         const descSpan = document.createElement('span');
         descSpan.className = 'card-description';
         descSpan.textContent = s.description;
-
-        // 4. Paneme kõik kokku
         card.appendChild(keyWrapper);
         card.appendChild(descSpan);
-
-        // 5. Lisame kaardi lehele
         container.appendChild(card);
     });
 }
 
-// See funktsioon tegeleb otsinguga
 function searchShortcuts(searchTerm) {
     searchTerm = searchTerm.toLowerCase();
     
     document.querySelectorAll('.shortcut-card').forEach(item => {
         const text = item.textContent.toLowerCase();
         if (text.includes(searchTerm)) {
-            item.style.display = 'flex'; // Uue disainiga kasutame 'flex', mitte 'block'
+            item.style.display = 'flex';
         } else {
             item.style.display = 'none';
         }
     });
-
-    // Peida tühjad sektsioonid
     document.querySelectorAll('section').forEach(section => {
         const list = section.querySelector('ul');
         const visibleItems = list.querySelectorAll('li[style="display: flex;"]').length;
-        
-        // Kui otsinguterminit pole, näita kõiki sektsioone
         if (searchTerm === '') {
              section.style.display = 'block';
              return;
         }
-
-        // Muidu peida sektsioon, kui seal pole ühtegi vastet
         if (visibleItems === 0 && list.children.length > 0) {
             section.style.display = 'none';
         } else {
@@ -179,7 +158,6 @@ function searchShortcuts(searchTerm) {
     });
 }
 
-// Käivitame koodi, kui leht on laetud
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
@@ -187,7 +165,6 @@ if (document.readyState === 'loading') {
 }
 
 function init() {
-    // Renderda kõik kategooriad
     renderShortcuts(KõigeOlulisemad, '#olulised');
     renderShortcuts(Dokumendid, '#dokumendid');
     renderShortcuts(FileExplorer, '#explorer');
@@ -197,8 +174,6 @@ function init() {
     renderShortcuts(SüsteemJaKiirseaded, '#system');
     renderShortcuts(TootlikkusBoonused, '#tootlikkus');
     renderShortcuts(TerminalJaArendus, '#terminal');
-
-    // Lisa otsingu funktsionaalsus
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {

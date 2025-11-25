@@ -1,28 +1,21 @@
 body {
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
-    
-    /* --- MUST-VALGE TAUST (Scrollides tumedamaks halliks) --- */
     background: linear-gradient(to bottom, #ffffff 0%, #555555 100%);
-    
     min-height: 100vh;
     background-attachment: scroll;
 }
 
-/* --- PÄIS (Hall taust, must tekst) --- */
 .pais {
     display: flex;
     align-items: center;
     justify-content: center; 
     width: 100%; 
-    
-    /* Lihtne hall taust */
     background-color: #e0e0e0;
-    color: #000000; /* Tekst mustaks */
-    
+    color: #000000;
     padding: 15px 20px;     
     box-sizing: border-box;
-    border-bottom: 1px solid #999; /* Tumehall joon */
+    border-bottom: 1px solid #999;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -48,7 +41,7 @@ body {
 .otsingu_konteiner {
     display: flex;
     align-items: center;
-    background-color: #ffffff; /* Valge kast */
+    background-color: #ffffff;
     border-radius: 25px; 
     padding: 6px 12px; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
@@ -85,7 +78,7 @@ body {
 }
 
 .otsingu_konteiner:focus-within {
-    border-color: #000; /* Fookuses must äärejoon */
+    border-color: #000;
 }
 
 .lemmikute_konteiner {
@@ -97,9 +90,9 @@ body {
 
 .lemmikute_ikoon {
     font-size: 2em; 
-    color: #000000; /* Ikoon mustaks */
+    color: #000000;
     cursor: pointer;
-    text-shadow: none; /* Varjud maha */
+    text-shadow: none; 
 }
 
 .lemmikute_ikoon:hover {
@@ -133,19 +126,17 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* PARANDUS: Siin oli 'p', aga peab olema 'a', et hover töötaks linkidel */
 .Valikud a:hover {
     color: #555; 
     border-bottom-color: #555;
 }
 
-/* --- JALUS (Hall taust, must tekst) --- */
 .krediidid {
     text-align: center;
     padding: 30px 20px;
     margin-top: 50px;
     
-    color: #d6d6d6; /* Hele tekst tumeda tausta peale */
+    color: #d6d6d6;
     font-size: 0.9em;
     border-top: 1px solid #494949;
 }
@@ -158,7 +149,6 @@ body {
     width: 80%;
 }
 
-/* Nimekirja grid */
 .shortcut-list {
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -175,16 +165,13 @@ body {
     }
 }
 
-/* KAART */
 .shortcut-card {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    
     display: flex; 
     align-items: center; 
     justify-content: space-between;
-    
     padding: 15px 25px;
     transition: transform 0.2s;
 }
@@ -193,7 +180,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* Klahvide ümbris */
 .key-wrapper {
     background-color: #dcdcdc; 
     padding: 8px 15px; 
@@ -202,9 +188,8 @@ body {
     gap: 8px; 
 }
 
-/* Klahvid */
 .key-wrapper kbd {
-    background-color: #333; /* Tumehall klahv */
+    background-color: #333;
     color: white; 
     padding: 5px 10px;
     border-radius: 6px; 
@@ -214,7 +199,6 @@ body {
     box-shadow: 0 2px 0 rgba(0,0,0,0.2); 
 }
 
-/* Kirjeldus */
 .card-description {
     font-size: 1.1em;
     color: #000;
@@ -226,7 +210,7 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
     color: #000;
-    text-shadow: none; /* Vari maha */
+    text-shadow: none;
 }
 
 h2 {
@@ -234,5 +218,5 @@ h2 {
     margin-bottom: 20px;
     margin-top: 40px;
     color: #000;
-    text-shadow: none; /* Vari maha */
+    text-shadow: none;
 }
