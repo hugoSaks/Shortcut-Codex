@@ -1,4 +1,3 @@
-
 const KõigeOlulisemad = [
   { os: 'Windows', description: 'Kuva töölaud / tagasi', keys: ['Win', 'D'] },
   { os: 'Windows', description: 'Ava File Explorer', keys: ['Win', 'E'] },
@@ -115,61 +114,57 @@ function renderShortcuts(arr, selector) {
     if (!container) return;
     container.innerHTML = '';
     arr.forEach(s => {
-        const li = document.createElement('li');
-        const keysSpan = document.createElement('span');
-        keysSpan.className = 'keys';
-        keysSpan.innerHTML = s.keys.map(k => `<kbd>${k}</kbd>`).join(' + ');
+        const card = document.createElement('li');
+        card.className = 'shortcut-card';
+        const keyWrapper = document.createElement('div');
+        keyWrapper.className = 'key-wrapper';
+        s.keys.forEach(k => {
+            const keyTag = document.createElement('kbd');
+            keyTag.textContent = k;
+            keyWrapper.appendChild(keyTag);
+        });
         const descSpan = document.createElement('span');
-        descSpan.className = 'desc';
-        descSpan.textContent = ' — ' + s.description;
-        li.appendChild(keysSpan);
-        li.appendChild(descSpan);
-        container.appendChild(li);
+        descSpan.className = 'card-description';
+        descSpan.textContent = s.description;
+        card.appendChild(keyWrapper);
+        card.appendChild(descSpan);
+        container.appendChild(card);
     });
 }
 
 function searchShortcuts(searchTerm) {
     searchTerm = searchTerm.toLowerCase();
     
-    document.querySelectorAll('.shortcut-list li').forEach(item => {
+    document.querySelectorAll('.shortcut-card').forEach(item => {
         const text = item.textContent.toLowerCase();
         if (text.includes(searchTerm)) {
-            item.style.display = '';
+            item.style.display = 'flex';
         } else {
             item.style.display = 'none';
         }
     });
-
     document.querySelectorAll('section').forEach(section => {
-        const visibleItems = section.querySelectorAll('li[style=""]').length;
-        if (visibleItems === 0) {
+        const list = section.querySelector('ul');
+        const visibleItems = list.querySelectorAll('li[style="display: flex;"]').length;
+        if (searchTerm === '') {
+             section.style.display = 'block';
+             return;
+        }
+        if (visibleItems === 0 && list.children.length > 0) {
             section.style.display = 'none';
         } else {
-            section.style.display = '';
+            section.style.display = 'block';
         }
     });
 }
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        renderShortcuts(KõigeOlulisemad, '#olulised');
-        renderShortcuts(Dokumendid, '#dokumendid');
-        renderShortcuts(FileExplorer, '#explorer');
-        renderShortcuts(Veebibrauser, '#brauser');
-        renderShortcuts(AknadJaTöölauad, '#aknad');
-        renderShortcuts(EkraanipildidJaSalvestus, '#ekraan');
-        renderShortcuts(SüsteemJaKiirseaded, '#system');
-        renderShortcuts(TootlikkusBoonused, '#tootlikkus');
-        renderShortcuts(TerminalJaArendus, '#terminal');
-
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                searchShortcuts(e.target.value);
-            });
-        }
-    });
+    document.addEventListener('DOMContentLoaded', init);
 } else {
+    init();
+}
+
+function init() {
     renderShortcuts(KõigeOlulisemad, '#olulised');
     renderShortcuts(Dokumendid, '#dokumendid');
     renderShortcuts(FileExplorer, '#explorer');
@@ -179,7 +174,6 @@ if (document.readyState === 'loading') {
     renderShortcuts(SüsteemJaKiirseaded, '#system');
     renderShortcuts(TootlikkusBoonused, '#tootlikkus');
     renderShortcuts(TerminalJaArendus, '#terminal');
-
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {

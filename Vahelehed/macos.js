@@ -155,35 +155,39 @@ const finderShortcuts = [
     { os: 'MacOS', description: 'Kopeerib lohistatud üksuse', keys: ['Option', 'Drag'] },
     { os: 'MacOS', description: 'Loob lohistatud üksusest otsetee (alias)', keys: ['Cmd', 'Option', 'Drag'] }
 ];
-
 function renderShortcuts(arr, selector) {
     const container = document.querySelector(selector);
     if (!container) return;
     container.innerHTML = '';
     arr.forEach(s => {
-        const li = document.createElement('li');
-        const keysSpan = document.createElement('span');
-        keysSpan.className = 'keys';
-        keysSpan.innerHTML = s.keys.map(k => `<kbd>${k}</kbd>`).join(' + ');
+        const card = document.createElement('li');
+        card.className = 'shortcut-card';
+        const keyWrapper = document.createElement('div');
+        keyWrapper.className = 'key-wrapper';
+        s.keys.forEach(k => {
+            const keyTag = document.createElement('kbd');
+            keyTag.textContent = k;
+            keyWrapper.appendChild(keyTag);
+        });
         const descSpan = document.createElement('span');
-        descSpan.className = 'desc';
-        descSpan.textContent = ' — ' + s.description;
-        li.appendChild(keysSpan);
-        li.appendChild(descSpan);
-        container.appendChild(li);
+        descSpan.className = 'card-description';
+        descSpan.textContent = s.description;
+        card.appendChild(keyWrapper);
+        card.appendChild(descSpan);
+        container.appendChild(card);
     });
 }
 
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         renderShortcuts(macShortcuts, '#shortcuts');
-        renderShortcuts(powerShortcuts, '.pwrbutton_komb');
+        renderShortcuts(powerShortcuts, '#power');
         renderShortcuts(textEditingShortcuts, '#text-editing');
         renderShortcuts(finderShortcuts, '#finder');
     });
 } else {
     renderShortcuts(macShortcuts, '#shortcuts');
-    renderShortcuts(powerShortcuts, '.pwrbutton_komb');
+    renderShortcuts(powerShortcuts, '#power');
     renderShortcuts(textEditingShortcuts, '#text-editing');
     renderShortcuts(finderShortcuts, '#finder');
 }

@@ -1,104 +1,122 @@
-// Andmed CSV failist "Linuxi shortcutid - Sheet1 (1).csv"
-
-const terminalShortcuts = [
-  { os: 'Linux', description: 'Uus vaheleht (Tab)', keys: ['Ctrl', 'Shift', 'T'] },
-  { os: 'Linux', description: 'Sulge vaheleht', keys: ['Ctrl', 'Shift', 'W'] },
-  { os: 'Linux', description: 'Järgmine vaheleht', keys: ['Ctrl', 'Tab'] },
-  { os: 'Linux', description: 'Eelmine vaheleht', keys: ['Ctrl', 'Shift', 'Tab'] },
-  { os: 'Linux', description: 'Jaga aken pooleks (Split)', keys: ['Alt', 'Shift', 'D'] },
-  { os: 'Linux', description: 'Kopeeri (Terminalis)', keys: ['Ctrl', 'Shift', 'C'] },
-  { os: 'Linux', description: 'Kleebi (Terminalis)', keys: ['Ctrl', 'Shift', 'V'] },
-  { os: 'Linux', description: 'Otsi terminalist', keys: ['Ctrl', 'Shift', 'F'] },
-  { os: 'Linux', description: 'Katkesta protsess (SIGINT)', keys: ['Ctrl', 'C'] },
-  { os: 'Linux', description: 'Puhasta ekraan', keys: ['Ctrl', 'L'] },
-  { os: 'Linux', description: 'Ajaloo otsing (Reverse search)', keys: ['Ctrl', 'R'] },
-  { os: 'Linux', description: 'Peata protsess (Taustale)', keys: ['Ctrl', 'Z'] },
-  { os: 'Linux', description: 'Välju / EOF', keys: ['Ctrl', 'D'] },
-  { os: 'Linux', description: 'Automaatne lõpetamine', keys: ['Tab'] },
-  { os: 'Linux', description: 'Eelmine käsk ajaloost', keys: ['Nool Üles'] },
-  { os: 'Linux', description: 'Järgmine käsk ajaloost', keys: ['Nool Alla'] },
-  { os: 'Linux', description: 'Korda viimast käsku', keys: ['!!'] },
-  { os: 'Linux', description: 'Eelmise käsu viimane argument', keys: ['!$'] },
-  { os: 'Linux', description: 'Rea algusesse', keys: ['Ctrl', 'A'] },
-  { os: 'Linux', description: 'Rea lõppu', keys: ['Ctrl', 'E'] },
-  { os: 'Linux', description: 'Kustuta reast vasakule', keys: ['Ctrl', 'U'] },
-  { os: 'Linux', description: 'Kustuta reast paremale', keys: ['Ctrl', 'K'] }
+// 1. Terminal: Vahelehed ja aknad
+const linuxTabs = [
+  { os: 'Linux', description: 'Avab uue terminali vahelehe', keys: ['Ctrl', 'Shift', 'T'] },
+  { os: 'Linux', description: 'Sulgeb aktiivse vahelehe', keys: ['Ctrl', 'Shift', 'W'] },
+  { os: 'Linux', description: 'Liigub järgmisele vahelehele', keys: ['Ctrl', 'Tab'] },
+  { os: 'Linux', description: 'Liigub eelmisele vahelehele', keys: ['Ctrl', 'Shift', 'Tab'] },
+  { os: 'Linux', description: 'Liigub vahelehtede vahel', keys: ['Ctrl', 'PgUp/PgDn'] },
+  { os: 'Linux', description: 'Jagab akna pooleks (Split)', keys: ['Alt', 'Shift', 'D'] },
+  { os: 'Linux', description: 'Jaga aken (Horisontaalne)', keys: ['Alt', 'Shift', '+'] },
+  { os: 'Linux', description: 'Jaga aken (Vertikaalne)', keys: ['Alt', 'Shift', '-'] },
+  { os: 'Linux', description: 'Liigub aktiivse jaotuse fookusega', keys: ['Alt', 'Nooleklahv'] },
+  { os: 'Linux', description: 'Muudab aktiivse jaotuse suurust', keys: ['Alt', 'Shift', 'Nooleklahv'] },
+  { os: 'Linux', description: 'Avab terminali seadete JSON-faili', keys: ['Ctrl', ','] }
 ];
 
-const desktopShortcuts = [
-  { os: 'Linux', description: 'Ava Terminal', keys: ['Ctrl', 'Alt', 'T'] },
-  { os: 'Linux', description: 'Tegevuste ülevaade', keys: ['Super'] },
-  { os: 'Linux', description: 'Vaheta rakendusi', keys: ['Alt', 'Tab'] },
-  { os: 'Linux', description: 'Vaheta virtuaalset töölauda', keys: ['Ctrl', 'Alt', 'Nooled'] },
-  { os: 'Linux', description: 'Ekraanitõmmis (Terve ekraan)', keys: ['PrtScn'] },
-  { os: 'Linux', description: 'Ekraanitõmmis (Valik)', keys: ['Shift', 'PrtScn'] },
-  { os: 'Linux', description: 'Käivita käsk (Run dialog)', keys: ['Alt', 'F2'] },
-  { os: 'Linux', description: 'Lukusta ekraan', keys: ['Super', 'L'] },
-  { os: 'Linux', description: 'Akna paigutus (Snap)', keys: ['Super', 'Nooled'] },
-  { os: 'Linux', description: 'Sulge aken', keys: ['Alt', 'F4'] },
-  { os: 'Linux', description: 'Akna liigutamine', keys: ['Alt', 'F7'] },
-  { os: 'Linux', description: 'Akna suuruse muutmine', keys: ['Alt', 'F8'] }
+// 2. Terminal: Kopeerimine ja käsud
+const linuxGeneral = [
+  { os: 'Linux', description: 'Kopeerib valitud teksti', keys: ['Ctrl', 'Shift', 'C'] },
+  { os: 'Linux', description: 'Kleebib teksti', keys: ['Ctrl', 'Shift', 'V'] },
+  { os: 'Linux', description: 'Otsib terminali ajaloost teksti', keys: ['Ctrl', 'Shift', 'F'] },
+  { os: 'Linux', description: 'Muudab teksti suurust', keys: ['Ctrl', 'Hiirekerimine'] },
+  { os: 'Linux', description: 'SIGINT. Sinu "paanikanupp"', keys: ['Ctrl', 'C'] },
+  { os: 'Linux', description: 'SIGTSTP. Lükkab taustale (fg toob tagasi)', keys: ['Ctrl', 'Z'] },
+  { os: 'Linux', description: 'Sulgeb kesta või kustutab märgi', keys: ['Ctrl', 'D'] },
+  { os: 'Linux', description: 'Peatab terminali väljundi', keys: ['Ctrl', 'S'] },
+  { os: 'Linux', description: 'Jätkab terminali tööd (pärast Ctrl+S)', keys: ['Ctrl', 'Q'] },
+  { os: 'Linux', description: 'Puhastab terminali ekraani', keys: ['Ctrl', 'L'] }
 ];
 
-const browserShortcuts = [
-  { os: 'Linux', description: 'Uus vaheleht', keys: ['Ctrl', 'T'] },
+// 3. Terminal: Kursor ja teksti toimetamine
+const linuxEditing = [
+  { os: 'Linux', description: 'Liigub kursori rea algusesse', keys: ['Ctrl', 'A'] },
+  { os: 'Linux', description: 'Liigub kursori rea lõppu', keys: ['Ctrl', 'E'] },
+  { os: 'Linux', description: 'Liigub ühe tähe võrra edasi/tagasi', keys: ['Ctrl', 'F / B'] },
+  { os: 'Linux', description: 'Liigub ühe sõna võrra edasi/tagasi', keys: ['Alt', 'F / B'] },
+  { os: 'Linux', description: 'Hüppab rea alguse ja kursori vahel', keys: ['Ctrl', 'X', 'Ctrl', 'X'] },
+  { os: 'Linux', description: 'Kustutab kursorist rea algusesse', keys: ['Ctrl', 'U'] },
+  { os: 'Linux', description: 'Kustutab kursorist rea lõpuni', keys: ['Ctrl', 'K'] },
+  { os: 'Linux', description: 'Kustutab eelmise sõna', keys: ['Ctrl', 'W'] },
+  { os: 'Linux', description: 'Kustutab sõna alates kursorist', keys: ['Alt', 'D'] },
+  { os: 'Linux', description: 'Kleebib tagasi kustutatud teksti (Yank)', keys: ['Ctrl', 'Y'] },
+  { os: 'Linux', description: 'Vahetab kaks viimast tähte (typo fix)', keys: ['Ctrl', 'T'] },
+  { os: 'Linux', description: 'Muudab sõna Suureks/väikeseks', keys: ['Alt', 'U / L'] }
+];
+
+// 4. Terminal: Ajalugu ja "Magic" käsud
+const linuxHistory = [
+  { os: 'Linux', description: 'Otsib ajaloost tagurpidi', keys: ['Ctrl', 'R'] },
+  { os: 'Linux', description: 'Võtab ajaloost eelmise/järgmise käsu', keys: ['Nool Üles / Alla'] },
+  { os: 'Linux', description: 'Kordab viimast käsku (nt sudo !!)', keys: ['!!'] },
+  { os: 'Linux', description: 'Võtab eelmise käsu viimase argumendi', keys: ['!$'] },
+  { os: 'Linux', description: 'Võtab eelmise käsu viimase argumendi (Alt)', keys: ['Alt', '.'] },
+  { os: 'Linux', description: 'Automaatne täitmine (Tab)', keys: ['Tab'] },
+  { os: 'Linux', description: 'Sisestab kõik Tab-i võimalikud vasted', keys: ['Alt', '*'] }
+];
+
+// 5. Töölaud ja Süsteem
+const linuxSystem = [
+  { os: 'Linux', description: 'Avab uue terminaliakna', keys: ['Ctrl', 'Alt', 'T'] },
+  { os: 'Linux', description: 'Liigub avatud rakenduste vahel', keys: ['Alt', 'Tab'] },
+  { os: 'Linux', description: 'Liigub "koodi" ja "brauseri" töölaua vahel', keys: ['Ctrl', 'Alt', 'Nool'] },
+  { os: 'Linux', description: 'Vii aken teisele töölauale', keys: ['Super', 'Shift', 'Nool'] },
+  { os: 'Linux', description: 'Salvestab pildi (Screenshot)', keys: ['PrtScn'] },
+  { os: 'Linux', description: 'Valib ala pildi tegemiseks', keys: ['Shift', 'PrtScn'] },
+  { os: 'Linux', description: 'Avab "Run" dialoogi', keys: ['Alt', 'F2'] },
+  { os: 'Linux', description: 'Lukustab ekraani', keys: ['Super', 'L'] },
+  { os: 'Linux', description: 'Paigutab akna poolele ekraanile', keys: ['Super', '← / →'] },
+  { os: 'Linux', description: 'Sulgeb aktiivse akna', keys: ['Alt', 'F4'] }
+];
+
+// 6. Veebibrauser
+const linuxBrowser = [
+  { os: 'Linux', description: 'Ava uus vaheleht', keys: ['Ctrl', 'T'] },
   { os: 'Linux', description: 'Sulge vaheleht', keys: ['Ctrl', 'W'] },
   { os: 'Linux', description: 'Taasta suletud vaheleht', keys: ['Ctrl', 'Shift', 'T'] },
-  { os: 'Linux', description: 'Järgmine vaheleht', keys: ['Ctrl', 'Tab'] },
-  { os: 'Linux', description: 'Uus aken', keys: ['Ctrl', 'N'] },
-  { os: 'Linux', description: 'Incognito aken', keys: ['Ctrl', 'Shift', 'N'] },
-  { os: 'Linux', description: 'Lae leht uuesti', keys: ['F5'] },
-  { os: 'Linux', description: 'Arendaja tööriistad', keys: ['F12'] },
+  { os: 'Linux', description: 'Liigu vahelehtede vahel', keys: ['Ctrl', 'Tab'] },
+  { os: 'Linux', description: 'Ava uus Incognito aken', keys: ['Ctrl', 'Shift', 'N'] },
+  { os: 'Linux', description: 'Laadi leht uuesti', keys: ['Ctrl', 'R'] },
+  { os: 'Linux', description: 'Arendaja tööriistad (DevTools)', keys: ['F12'] },
   { os: 'Linux', description: 'Mine aadressiribale', keys: ['Ctrl', 'L'] },
   { os: 'Linux', description: 'Otsi lehelt', keys: ['Ctrl', 'F'] },
   { os: 'Linux', description: 'Ajalugu', keys: ['Ctrl', 'H'] },
-  { os: 'Linux', description: 'Allalaadimised', keys: ['Ctrl', 'J'] },
-  // --- LISATUD UUED OTSETEED ---
-  { os: 'Linux', description: 'Suurenda (Zoom in)', keys: ['Ctrl', '+'] },
-  { os: 'Linux', description: 'Vähenda (Zoom out)', keys: ['Ctrl', '-'] },
-  { os: 'Linux', description: 'Lähtesta suurus (Reset zoom)', keys: ['Ctrl', '0'] }
+  { os: 'Linux', description: 'Allalaadimised', keys: ['Ctrl', 'J'] }
 ];
 
-// Funktsioon, mis loob HTML sisu
 function renderShortcuts(arr, selector) {
     const container = document.querySelector(selector);
-    if (!container) {
-        console.warn(`Elementi ${selector} ei leitud!`);
-        return;
-    }
-    container.innerHTML = '';
+    if (!container) return;
+    
+    container.innerHTML = ''; 
     
     arr.forEach(s => {
-        const li = document.createElement('li');
-        
-        // Klahvide konteiner
-        const keysSpan = document.createElement('span');
-        keysSpan.className = 'keys';
-        
-        // Loome iga klahvi jaoks eraldi <kbd> elemendi
-        const keysHtml = s.keys.map(k => `<kbd>${k}</kbd>`).join(' + ');
-        keysSpan.innerHTML = keysHtml;
-        
-        // Kirjelduse konteiner
+        const card = document.createElement('li');
+        card.className = 'shortcut-card';
+
+        const keyWrapper = document.createElement('div');
+        keyWrapper.className = 'key-wrapper';
+
+        s.keys.forEach(k => {
+            const keyTag = document.createElement('kbd');
+            keyTag.textContent = k;
+            keyWrapper.appendChild(keyTag);
+        });
+
         const descSpan = document.createElement('span');
-        descSpan.className = 'desc';
-        descSpan.textContent = ' — ' + s.description;
-        
-        li.appendChild(keysSpan);
-        li.appendChild(descSpan);
-        container.appendChild(li);
+        descSpan.className = 'card-description';
+        descSpan.textContent = s.description;
+
+        card.appendChild(keyWrapper);
+        card.appendChild(descSpan);
+        container.appendChild(card);
     });
 }
 
-// Käivitame renderdamise
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        renderShortcuts(terminalShortcuts, '#linux-terminal');
-        renderShortcuts(desktopShortcuts, '#linux-desktop');
-        renderShortcuts(browserShortcuts, '#linux-browser');
-    });
-} else {
-    renderShortcuts(terminalShortcuts, '#linux-terminal');
-    renderShortcuts(desktopShortcuts, '#linux-desktop');
-    renderShortcuts(browserShortcuts, '#linux-browser');
-}
+document.addEventListener('DOMContentLoaded', () => {
+    renderShortcuts(linuxTabs, '#linux-tabs');
+    renderShortcuts(linuxGeneral, '#linux-general');
+    renderShortcuts(linuxEditing, '#linux-editing');
+    renderShortcuts(linuxHistory, '#linux-history');
+    renderShortcuts(linuxSystem, '#linux-system');
+    renderShortcuts(linuxBrowser, '#linux-browser'); // Veendu, et see ID on HTML-is olemas!
+});
