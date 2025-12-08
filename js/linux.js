@@ -83,6 +83,7 @@ const linuxBrowser = [
   { os: 'Linux', description: 'Allalaadimised', keys: ['Ctrl', 'J'] }
 ];
 
+//Genereerib andmete põhjal ning joonistab kastid ekraanile
 function renderShortcuts(arr, selector) {
     const container = document.querySelector(selector);
     if (!container) return;
@@ -114,6 +115,7 @@ function renderShortcuts(arr, selector) {
     });
 }
 
+//Haldab lemmikute lisamist
 function toggleFavorite(shortcut, icon) {
     let favorites = JSON.parse(localStorage.getItem('shortcutFavorites')) || [];
     const index = favorites.findIndex(fav => fav.description === shortcut.description && fav.os === shortcut.os);
@@ -129,7 +131,7 @@ function toggleFavorite(shortcut, icon) {
     }
     localStorage.setItem('shortcutFavorites', JSON.stringify(favorites));
 }
-
+//Filtreerib kaarte vastavalt kasutaja sisestatud tekstile ja peidab tühjaks jäänud sektsioonid.
 function searchShortcuts(searchTerm) {
     searchTerm = searchTerm.toLowerCase();
     document.querySelectorAll('.shortcut-card').forEach(item => {
