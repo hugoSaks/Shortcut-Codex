@@ -1,4 +1,4 @@
-// 1. Terminal: Vahelehed ja aknad
+//Andmed jaotatud teemade kaupa
 const linuxTabs = [
   { os: 'Linux', description: 'Avab uue terminali vahelehe', keys: ['Ctrl', 'Shift', 'T'] },
   { os: 'Linux', description: 'Sulgeb aktiivse vahelehe', keys: ['Ctrl', 'Shift', 'W'] },
@@ -13,7 +13,6 @@ const linuxTabs = [
   { os: 'Linux', description: 'Avab terminali seadete JSON-faili', keys: ['Ctrl', ','] }
 ];
 
-// 2. Terminal: Kopeerimine ja käsud
 const linuxGeneral = [
   { os: 'Linux', description: 'Kopeerib valitud teksti', keys: ['Ctrl', 'Shift', 'C'] },
   { os: 'Linux', description: 'Kleebib teksti', keys: ['Ctrl', 'Shift', 'V'] },
@@ -27,7 +26,6 @@ const linuxGeneral = [
   { os: 'Linux', description: 'Puhastab terminali ekraani', keys: ['Ctrl', 'L'] }
 ];
 
-// 3. Terminal: Kursor ja teksti toimetamine
 const linuxEditing = [
   { os: 'Linux', description: 'Liigub kursori rea algusesse', keys: ['Ctrl', 'A'] },
   { os: 'Linux', description: 'Liigub kursori rea lõppu', keys: ['Ctrl', 'E'] },
@@ -43,7 +41,6 @@ const linuxEditing = [
   { os: 'Linux', description: 'Muudab sõna Suureks/väikeseks', keys: ['Alt', 'U / L'] }
 ];
 
-// 4. Terminal: Ajalugu ja "Magic" käsud
 const linuxHistory = [
   { os: 'Linux', description: 'Otsib ajaloost tagurpidi', keys: ['Ctrl', 'R'] },
   { os: 'Linux', description: 'Võtab ajaloost eelmise/järgmise käsu', keys: ['Nool Üles / Alla'] },
@@ -54,7 +51,6 @@ const linuxHistory = [
   { os: 'Linux', description: 'Sisestab kõik Tab-i võimalikud vasted', keys: ['Alt', '*'] }
 ];
 
-// 5. Töölaud ja Süsteem
 const linuxSystem = [
   { os: 'Linux', description: 'Avab uue terminaliakna', keys: ['Ctrl', 'Alt', 'T'] },
   { os: 'Linux', description: 'Liigub avatud rakenduste vahel', keys: ['Alt', 'Tab'] },
@@ -68,7 +64,6 @@ const linuxSystem = [
   { os: 'Linux', description: 'Sulgeb aktiivse akna', keys: ['Alt', 'F4'] }
 ];
 
-// 6. Veebibrauser
 const linuxBrowser = [
   { os: 'Linux', description: 'Ava uus vaheleht', keys: ['Ctrl', 'T'] },
   { os: 'Linux', description: 'Sulge vaheleht', keys: ['Ctrl', 'W'] },
@@ -83,7 +78,7 @@ const linuxBrowser = [
   { os: 'Linux', description: 'Allalaadimised', keys: ['Ctrl', 'J'] }
 ];
 
-// 1. Renderdamine: Genereerib HTML-i (kaardid) etteantud andmemassiivi ja sihtkoha ID põhjalfunction renderShortcuts(arr, selector) {
+//Renderdamine: Genereerib HTML-i (kaardid) etteantud andmemassiivi ja sihtkoha ID põhjalfunction renderShortcuts(arr, selector) {
     const container = document.querySelector(selector);
     if (!container) return;
     container.innerHTML = ''; 
@@ -114,7 +109,7 @@ const linuxBrowser = [
     });
 }
 
-// 2. Lemmikud: Haldab lemmikute lisamist ja eemaldamist localStorage-is ning uuendab südame ikoonifunction.
+//Lemmikud: Haldab lemmikute lisamist ja eemaldamist localStorage-is ning uuendab südame ikoonifunction.
     let favorites = JSON.parse(localStorage.getItem('shortcutFavorites')) || [];
     const index = favorites.findIndex(fav => fav.description === shortcut.description && fav.os === shortcut.os);
 
@@ -156,7 +151,7 @@ function searchShortcuts(searchTerm) {
     });
 }
 
-// 3. Otsing: Filtreerib kaarte vastavalt otsingusõnale ja peidab tühjaks jäänud sektsioonid
+//Otsing: Filtreerib kaarte vastavalt otsingusõnale ja peidab tühjaks jäänud sektsioonid
 document.addEventListener('DOMContentLoaded', () => {
     renderShortcuts(linuxTabs, '#linux-tabs');
     renderShortcuts(linuxGeneral, '#linux-general');
